@@ -6,7 +6,7 @@ output:
 ---
 
 
-##Loading and preprocessing the data
+## Loading and preprocessing the data
 
 Download the data and set it up in the activity variable
 ```{r downloadunzipdata}
@@ -29,7 +29,7 @@ Then clean the data to get rid of NAs
 activity_clean <- subset(activity, !is.na(activity$steps))
 ```
 
-##What is mean total number of steps taken per day?
+## What is mean total number of steps taken per day?
 
 Create daily steps per day 
 ```{r daily}
@@ -83,7 +83,7 @@ intervalaverage[intervalaverage$avg == max_steps, ]
 
 Interval 835 has the maximum number of steps at 206.2.
 
-# Imputing missing values
+## Imputing missing values
 
 Calculate and report the total number of missing values in the dataset (i.e. the total number of rows with NAs)
 ```{r missingvalues}
@@ -121,7 +121,7 @@ median(new_dailysum)
 
 The mean and median are both 10766.19 steps. These values do not differ much from the first part of the assignment. However, the impact of of imputing missing data is that there are a lot more values at exactly the new mean, which also gives us the new median. These are the results of imputing new data.
 
-##Are there differences in activity patterns between weekdays and weekends?
+## Are there differences in activity patterns between weekdays and weekends?
 
 Create a new factor variable in the dataset with two levels – “weekday” and “weekend” indicating whether a given date is a weekday or weekend day
 ```{r weekday}
@@ -148,4 +148,5 @@ xyplot(steps ~ interval | factor(wk),
        lty=1,
        data=wk_df)
 ```
+
 Are there differences in activity patterns between weekdays and weekends? Yes, as it seems like the participant gets up earlier in the weekday and later in the weekend. In addition, likely the particpant is at work during the weekday, so the activity levels are lower then.
